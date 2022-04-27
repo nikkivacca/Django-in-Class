@@ -5,9 +5,12 @@
 
 <P> Topics </P>
 <ul>
-    {% for t.text in topics %}
+    {% for t in topics %}
 
-    <li> {{ t }}</li>
+    <li>
+        <a href="{% url 'MainApp:topic' t.id %}">{{ t }} </a>
+    </li>
+
 
     {% empty %}
 
@@ -16,6 +19,7 @@
     {% endfor %}
 </ul>
 
+<a href="{% url 'MainApp:new_topic' %}">Add a new topic</a>
 
 
 {% endblock content %}
